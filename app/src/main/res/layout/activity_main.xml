@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/welcomeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to Roomify"
+        android:textColor="@color/dark_brown"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/welcomeSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experience Luxury at Your Fingertips"
+        android:textColor="@color/dark_brown"
+        android:textSize="16sp"
+        android:layout_below="@id/welcomeTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logoImage"
+        android:layout_width="239dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/welcomeSubtitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/roomify_logo" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="Sign Up"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/dark_brown"
+        android:layout_below="@id/logoImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Log In Button -->
+    <Button
+        android:id="@+id/logInButton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/signUpButton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/dark_brown"
+        android:text="Log In"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout>
