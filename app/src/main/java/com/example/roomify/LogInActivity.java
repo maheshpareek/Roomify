@@ -2,6 +2,7 @@ package com.example.roomify;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -16,11 +17,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LogInActivity extends AppCompatActivity {
@@ -29,7 +29,7 @@ public class LogInActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private GoogleSignInClient mGoogleSignInClient;
 
-    private ActivityResultLauncher<Intent> googleSignInLauncher =
+    private final ActivityResultLauncher<Intent> googleSignInLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
                     new ActivityResultCallback<androidx.activity.result.ActivityResult>() {
                         @Override
@@ -38,7 +38,9 @@ public class LogInActivity extends AppCompatActivity {
                                 Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
                                 try {
                                     GoogleSignInAccount account = task.getResult(ApiException.class);
-                                    checkUserRole(account.getId());
+                                    if (account != null) {
+                                        checkUserType(account.getId());
+                                    }
                                 } catch (ApiException e) {
                                     Toast.makeText(LogInActivity.this, "Google Sign-In failed!", Toast.LENGTH_SHORT).show();
                                 }
@@ -57,39 +59,65 @@ public class LogInActivity extends AppCompatActivity {
         EditText emailInput = findViewById(R.id.emailInput);
         EditText passwordInput = findViewById(R.id.passwordInput);
         Button logInButton = findViewById(R.id.logInButton);
-        LinearLayout googleSignUpButton = findViewById(R.id.googleSignUpButton);
+        LinearLayout googleSignInButton = findViewById(R.id.googleSignInButton);
+
+        // Google Sign-In setup
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         logInButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(LogInActivity.this, "Please enter both email and password", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
                             if (user != null) {
-                                checkUserRole(user.getUid());
+                                checkUserType(user.getUid());
                             }
                         } else {
-                            Toast.makeText(LogInActivity.this, "Login failed!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LogInActivity.this, "Login failed! Invalid credentials.", Toast.LENGTH_SHORT).show();
                         }
                     });
         });
 
-        googleSignUpButton.setOnClickListener(v -> {
+        googleSignInButton.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             googleSignInLauncher.launch(signInIntent);
         });
     }
 
-    private void checkUserRole(String uid) {
-        db.collection("users").document(uid).get()
+    private void checkUserType(String uid) {
+        db.collection("users").document(uid)
+                .get(com.google.firebase.firestore.Source.SERVER) // Force fresh data
                 .addOnSuccessListener(document -> {
-                    String role = document.getString("role");
-                    Intent intent = "admin".equals(role) ? new Intent(this, AdminDashboardActivity.class)
-                            : new Intent(this, UserDashboardActivity.class);
+                    String userType = document.getString("userType");
+                    Log.d("FirestoreDebug", "Fetched userType: " + userType + " for UID: " + uid);
+
+                    Intent intent;
+                    if ("admin".equalsIgnoreCase(userType)) {
+                        Log.d("FirestoreDebug", "Redirecting to AdminDashboardActivity");
+                        Toast.makeText(this, "Redirecting to Admin Dashboard...", Toast.LENGTH_LONG).show();
+                        intent = new Intent(this, AdminDashboardActivity.class);
+                    } else {
+                        Log.d("FirestoreDebug", "Redirecting to UserDashboardActivity");
+                        Toast.makeText(this, "Redirecting to User Dashboard...", Toast.LENGTH_LONG).show();
+                        intent = new Intent(this, UserDashboardActivity.class);
+                    }
                     startActivity(intent);
                     finish();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(LogInActivity.this, "Failed to get user data", Toast.LENGTH_SHORT).show();
                 });
     }
 }

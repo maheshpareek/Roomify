@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.roomify">
@@ -12,20 +13,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Roomify"
         tools:targetApi="31">
-
-        <!-- Main Activity -->
-        <activity android:name=".MainActivity" android:exported="true">
+        <activity
+            android:name=".ManageBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ManageRoomsActivity"
+            android:exported="false" /> <!-- Main Activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- Sign Up Activity -->
-        <activity android:name=".SignUpActivity" android:exported="true" />
-
-        <!-- Log In Activity -->
-        <activity android:name=".LogInActivity" android:exported="true" />
+        </activity> <!-- Sign Up Activity -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="true" /> <!-- Log In Activity -->
+        <activity
+            android:name=".LogInActivity"
+            android:exported="true" /> <!-- User Dashboard Activity -->
+        <activity
+            android:name=".UserDashboardActivity"
+            android:exported="true" /> <!-- Admin Dashboard Activity -->
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:exported="true" />
 
     </application>
+
 </manifest>
