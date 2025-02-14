@@ -41,6 +41,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+
     // Firebase BOM (Manages Firebase versions)
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
 
@@ -52,4 +53,10 @@ dependencies {
 
     // Google Sign-In Services
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+
+    implementation ("androidx.cardview:cardview:1.0.0")
+
+    implementation ("com.google.firebase:firebase-firestore:24.3.0")
 }
+

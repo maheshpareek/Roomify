@@ -90,8 +90,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:elevation="4dp"
-                    android:cardCornerRadius="8dp">
+                    android:elevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -123,8 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:elevation="4dp"
-                    android:cardCornerRadius="8dp">
+                    android:elevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -156,8 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
-                    android:elevation="4dp"
-                    android:cardCornerRadius="8dp">
+                    android:elevation="4dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -183,6 +180,92 @@
                             android:textColor="@android:color/black" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <!-- Booked Rooms Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Booked Rooms"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:layout_marginEnd="16dp" />
+
+                        <TextView
+                            android:id="@+id/booked_rooms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Revenue Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:elevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Revenue"
+                            android:textSize="16sp"
+                            android:textColor="@android:color/black"
+                            android:layout_marginEnd="16dp" />
+
+                        <TextView
+                            android:id="@+id/total_revenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$10,000"
+                            android:textSize="18sp"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Manage Rooms Button -->
+                <Button
+                    android:id="@+id/btn_manage_rooms"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Rooms"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/dark_brown"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Manage Bookings Button -->
+                <Button
+                    android:id="@+id/btn_manage_bookings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Manage Bookings"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/dark_brown"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="16dp" />
 
             </LinearLayout>
         </ScrollView>

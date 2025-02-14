@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Basic Colors -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
     <color name="dark_brown">#C6824B</color>
-    <color name="colorPrimary">#6200EE</color>
+
+    <!-- Primary & Secondary Theme Colors -->
+    <color name="primary_color">#6200EE</color>
+    <color name="secondary_color">#03DAC5</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <!-- Button Colors -->
+    <color name="button_primary">#6200EE</color>
+    <color name="button_secondary">#03DAC5</color>
+    <color name="button_dark">#000000</color>
+
+    <!-- Background Colors -->
+    <color name="card_background">#F5F5F5</color>
 </resources>
