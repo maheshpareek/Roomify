@@ -27,5 +27,8 @@
         <!-- Log In Activity -->
         <activity android:name=".LogInActivity" android:exported="true" />
 
+        <activity android:name=".UserHomeActivity" />
+
+
     </application>
 </manifest>

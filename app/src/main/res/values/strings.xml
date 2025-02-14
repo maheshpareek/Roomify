@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Roomify</string>
     <string name="default_web_client_id">842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com</string>
-
+    <string-array name="admin_roles">
+        <item>Manager</item>
+        <item>Receptionist</item>
+        <item>Cleaner</item>
+        <item>Plumber</item>
+        <item>Technician</item>
+        <item>Room Service</item>
+        <item>Security</item>
+    </string-array>
 </resources>

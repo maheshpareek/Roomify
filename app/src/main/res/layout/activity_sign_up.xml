@@ -42,6 +42,16 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp" />
 
+        <!-- name Input -->
+        <EditText
+            android:id="@+id/nameInput"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter Name"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
         <!-- Email Input -->
         <EditText
             android:id="@+id/emailInput"
