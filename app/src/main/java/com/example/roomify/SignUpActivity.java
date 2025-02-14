@@ -17,8 +17,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private GoogleSignInClient mGoogleSignInClient;
 
-    private EditText emailInput, passwordInput, confirmPasswordInput;
+    private EditText emailInput, passwordInput, confirmPasswordInput, firstNameInput, lastNameInput;
     private Button signUpButton;
     private LinearLayout googleSignUpButton;
 
@@ -70,6 +70,8 @@ public class SignUpActivity extends AppCompatActivity {
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         confirmPasswordInput = findViewById(R.id.confirmPasswordInput);
+        firstNameInput = findViewById(R.id.firstNameInput);  // New field for first name
+        lastNameInput = findViewById(R.id.lastNameInput);    // New field for last name
         signUpButton = findViewById(R.id.signUpButton);
         googleSignUpButton = findViewById(R.id.googleSignUpButton);
 
@@ -84,8 +86,10 @@ public class SignUpActivity extends AppCompatActivity {
         String email = emailInput.getText().toString().trim();
         String password = passwordInput.getText().toString().trim();
         String confirmPassword = confirmPasswordInput.getText().toString().trim();
+        String firstName = firstNameInput.getText().toString().trim();
+        String lastName = lastNameInput.getText().toString().trim();
 
-        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() || firstName.isEmpty() || lastName.isEmpty()) {
             Toast.makeText(SignUpActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -107,7 +111,8 @@ public class SignUpActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         if (user != null) {
                             sendEmailVerification(user);
-                            createUserInFirestore(user.getUid(), "First Name", "Last Name", email);
+                            // Use the user-inputted first and last name
+                            createUserInFirestore(user.getUid(), firstName, lastName, email);
                         }
                     } else {
                         Toast.makeText(SignUpActivity.this, "Sign-up failed: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -116,8 +121,10 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void createUserInFirestore(String userId, String firstName, String lastName, String email) {
-        User user = new User(firstName, lastName, email);
+        // Create user object with first name, last name, and email
+        User user = new User(firstName, lastName, email, "guest");
 
+        // Save the user object to Firestore
         db.collection("users").document(userId)
                 .set(user)
                 .addOnSuccessListener(aVoid -> {
@@ -149,7 +156,21 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         if (account != null) {
-            createUserInFirestore(account.getId(), account.getGivenName(), account.getFamilyName(), account.getEmail());
+            String firstName = account.getGivenName();
+            String lastName = account.getFamilyName();
+            String email = account.getEmail();
+
+            // Use the Google user's first name and last name
+            User user = new User(firstName, lastName, email, "guest");
+
+            // Save Google user data to Firestore
+            db.collection("users").document(account.getId())
+                    .set(user)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(SignUpActivity.this, "Google Sign-in successful!", Toast.LENGTH_SHORT).show();
+                        loginUser(account.getEmail(), passwordInput.getText().toString());
+                    })
+                    .addOnFailureListener(e -> Toast.makeText(SignUpActivity.this, "Firestore Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
         }
     }
 }

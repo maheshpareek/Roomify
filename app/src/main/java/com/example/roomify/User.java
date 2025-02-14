@@ -4,15 +4,16 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String userType;
 
     // Default constructor required for Firestore
-    public User() {
-    }
+    public User() {}
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String email, String userType) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userType = userType;
     }
 
     public String getFirstName() {
@@ -37,5 +38,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 }
