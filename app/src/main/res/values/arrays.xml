@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Room Types -->
+    <string-array name="room_types">
+        <item>Standard Room</item>
+        <item>Deluxe Room</item>
+        <item>Suite</item>
+        <item>Executive Suite</item>
+        <item>Family Room</item>
+    </string-array>
+
+    <!-- Report Types -->
+    <string-array name="report_types">
+        <item>Revenue Report</item>
+        <item>Occupancy Report</item>
+        <item>User Activity Report</item>
+        <item>Booking Trends Report</item>
+    </string-array>
+
+    <!-- Time Ranges -->
+    <string-array name="time_ranges">
+        <item>Last 7 Days</item>
+        <item>Last 30 Days</item>
+        <item>This Month</item>
+        <item>Last Month</item>
+        <item>This Quarter</item>
+        <item>Last Quarter</item>
+        <item>Year to Date</item>
+    </string-array>
+</resources>

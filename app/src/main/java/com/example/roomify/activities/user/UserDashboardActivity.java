@@ -1,9 +1,10 @@
-package com.example.roomify;
+package com.example.roomify.activities.user;
 
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.roomify.R;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class UserDashboardActivity extends AppCompatActivity {

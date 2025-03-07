@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_edit_room"
+        android:title="Edit Room" />
+    <item
+        android:id="@+id/action_toggle_availability"
+        android:title="Toggle Availability" />
+    <item
+        android:id="@+id/action_delete_room"
+        android:title="Delete Room" />
+</menu>

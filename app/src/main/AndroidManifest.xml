@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Roomify"
         tools:targetApi="31">
         <activity
-            android:name=".ManageBookingsActivity"
+            android:name=".activities.admin.ManageUsersActivity"
             android:exported="false" />
         <activity
-            android:name=".ManageRoomsActivity"
+            android:name=".activities.admin.ManageBookingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.admin.ManageRoomsActivity"
             android:exported="false" /> <!-- Main Activity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.user.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,17 +32,18 @@
             </intent-filter>
         </activity> <!-- Sign Up Activity -->
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activities.user.SignUpActivity"
             android:exported="true" /> <!-- Log In Activity -->
         <activity
-            android:name=".LogInActivity"
+            android:name=".activities.user.LogInActivity"
             android:exported="true" /> <!-- User Dashboard Activity -->
         <activity
-            android:name=".UserDashboardActivity"
+            android:name=".activities.user.UserDashboardActivity"
             android:exported="true" /> <!-- Admin Dashboard Activity -->
         <activity
-            android:name=".AdminDashboardActivity"
+            android:name=".activities.admin.AdminDashboardActivity"
             android:exported="true" />
+
 
     </application>
 

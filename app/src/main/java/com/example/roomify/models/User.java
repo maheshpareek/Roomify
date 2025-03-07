@@ -1,6 +1,7 @@
-package com.example.roomify;
+package com.example.roomify.models;
 
 public class User {
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -14,6 +15,15 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.userType = userType;
+    }
+
+    // ID getter and setter
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
