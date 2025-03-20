@@ -6,7 +6,10 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+>>>>>>> upstream/main
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -63,6 +66,7 @@ public class LogInActivity extends AppCompatActivity {
         EditText passwordInput = findViewById(R.id.passwordInput);
         Button logInButton = findViewById(R.id.logInButton);
         LinearLayout googleSignInButton = findViewById(R.id.googleSignInButton);
+<<<<<<< HEAD
         // Bind the Forgot Password TextView (make sure it's defined in your login.xml)
         TextView forgotPasswordText = findViewById(R.id.forgotPasswordText);
 
@@ -72,6 +76,16 @@ public class LogInActivity extends AppCompatActivity {
         });
 
         // Log in with Email/Password
+=======
+
+        // Google Sign-In setup
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+>>>>>>> upstream/main
         logInButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
@@ -94,11 +108,15 @@ public class LogInActivity extends AppCompatActivity {
                     });
         });
 
+<<<<<<< HEAD
         // Google Sign-In button click listener
+=======
+>>>>>>> upstream/main
         googleSignInButton.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             googleSignInLauncher.launch(signInIntent);
         });
+<<<<<<< HEAD
 
         // Google Sign-In setup
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -106,6 +124,8 @@ public class LogInActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+=======
+>>>>>>> upstream/main
     }
 
     private void checkUserType(String uid) {

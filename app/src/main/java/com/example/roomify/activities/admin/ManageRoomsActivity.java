@@ -1,5 +1,6 @@
 package com.example.roomify.activities.admin;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -42,10 +43,19 @@ public class ManageRoomsActivity extends AppCompatActivity implements RoomAdapte
     private FirebaseFirestore db;
     private FloatingActionButton fabAdd;
 
+=======
+import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.roomify.R;
+
+public class ManageRoomsActivity extends AppCompatActivity {
+>>>>>>> upstream/main
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_rooms);
+<<<<<<< HEAD
 
         roomsRecyclerView = findViewById(R.id.rooms_recycler_view);
         roomsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -180,5 +190,7 @@ public class ManageRoomsActivity extends AppCompatActivity implements RoomAdapte
                 .addOnFailureListener(e -> {
                     Toast.makeText(ManageRoomsActivity.this, "Error deleting room: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
+=======
+>>>>>>> upstream/main
     }
 }

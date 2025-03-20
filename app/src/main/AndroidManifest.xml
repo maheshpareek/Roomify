@@ -41,6 +41,7 @@
             android:name=".activities.user.UserDashboardActivity"
             android:exported="true" /> <!-- Admin Dashboard Activity -->
         <activity
+<<<<<<< HEAD
             android:name=".activities.user.SettingsActivity"
             android:exported="true" />
 
@@ -63,6 +64,11 @@
             android:name=".activities.user.ForgotPasswordActivity"
             android:exported="true" />
 
+=======
+            android:name=".activities.admin.AdminDashboardActivity"
+            android:exported="true" />
+
+>>>>>>> upstream/main
 
     </application>
 

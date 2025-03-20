@@ -27,9 +27,12 @@
         <item>Last Quarter</item>
         <item>Year to Date</item>
     </string-array>
+<<<<<<< HEAD
 
     <string-array name="user_types">
         <item>admin</item>
         <item>guest</item>
     </string-array>
+=======
+>>>>>>> upstream/main
 </resources>
