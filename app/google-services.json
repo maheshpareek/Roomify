@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "842631885169",
+    "firebase_url": "https://roomify-d0e13-default-rtdb.firebaseio.com",
+    "project_id": "roomify-d0e13",
+    "storage_bucket": "roomify-d0e13.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:842631885169:android:0a0c468e50f2a47de746d0",
+        "android_client_info": {
+          "package_name": "com.example.roomify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "842631885169-dlqs2ifjigsnr19kdefkh57ipqvecanm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roomify",
+            "certificate_hash": "2708ae6632808cfb5d7120ff7a1c3ab21e1461db"
+          }
+        },
+        {
+          "client_id": "842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmRxcRs3eJerRujKQdLnRejL7fdIUaLoA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
