@@ -16,13 +16,13 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
 
+    // 1) Define the interface with the EXACT signature we will use:
+    public interface OnUserClickListener {
+        void onUserOptionsClick(User user, int position, View anchorView);
+    }
+
     private List<User> userList;
     private OnUserClickListener listener;
-
-    public interface OnUserClickListener {
-        void onUserClick(User user, int position);
-        void onUserOptionsClick(User user, int position, View view);
-    }
 
     public UserAdapter(List<User> userList, OnUserClickListener listener) {
         this.userList = userList;
@@ -41,28 +41,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = userList.get(position);
 
-        // Set user name
+        // Example data binding (assuming you have these IDs in item_user.xml)
         holder.nameTextView.setText(user.getFirstName() + " " + user.getLastName());
-
-        // Set user email
         holder.emailTextView.setText(user.getEmail());
 
-        // Set user type with first letter capitalized
-        String userType = user.getUserType();
-        if (userType != null && !userType.isEmpty()) {
-            userType = userType.substring(0, 1).toUpperCase() + userType.substring(1).toLowerCase();
-        }
-        holder.userTypeTextView.setText(userType);
-
-        // Set click listeners
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onUserClick(user, position);
-            }
-        });
-
+        // 2) When the options button is clicked, we call onUserOptionsClick
         holder.optionsButton.setOnClickListener(v -> {
             if (listener != null) {
+                // EXACT param order: (User, int, View)
                 listener.onUserOptionsClick(user, position, v);
             }
         });
@@ -73,22 +59,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return userList.size();
     }
 
-    public void updateData(List<User> newUserList) {
-        this.userList = newUserList;
-        notifyDataSetChanged();
-    }
-
+    // Standard ViewHolder
     static class UserViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView emailTextView;
-        TextView userTypeTextView;
         ImageView optionsButton;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.user_name);
             emailTextView = itemView.findViewById(R.id.user_email);
-            userTypeTextView = itemView.findViewById(R.id.user_type);
             optionsButton = itemView.findViewById(R.id.user_options_button);
         }
     }

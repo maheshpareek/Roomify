@@ -14,7 +14,10 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
+<<<<<<< HEAD
+=======
 // Add these imports
+>>>>>>> upstream/main
 import com.example.roomify.R;
 import com.example.roomify.models.Booking;
 
@@ -54,9 +57,19 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         String guestName = booking.getGuestName();
         holder.guestNameTextView.setText(guestName != null ? guestName : "Guest");
 
+<<<<<<< HEAD
+        // Format check-in and check-out dates safely
+        String checkin = (booking.getCheckInDate() != null)
+                ? dateFormat.format(booking.getCheckInDate())
+                : "N/A";
+        String checkout = (booking.getCheckOutDate() != null)
+                ? dateFormat.format(booking.getCheckOutDate())
+                : "N/A";
+=======
         // Format check-in and check-out dates
         String checkin = dateFormat.format(booking.getCheckInDate());
         String checkout = dateFormat.format(booking.getCheckOutDate());
+>>>>>>> upstream/main
         holder.dateRangeTextView.setText(checkin + " - " + checkout);
 
         // Format price with currency symbol
@@ -93,12 +106,19 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     private String formatStatus(String status) {
         if (status == null) return "Unknown";
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/main
         switch (status) {
             case "pending":
                 return "Pending";
             case "confirmed":
+<<<<<<< HEAD
+                return "Booked"; // Show confirmed as "Booked"
+=======
                 return "Confirmed";
+>>>>>>> upstream/main
             case "checked_in":
                 return "Checked In";
             case "checked_out":
@@ -112,17 +132,29 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     private void setStatusColor(TextView textView, String status) {
         int colorResId;
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/main
         if (status == null) {
             colorResId = android.R.color.darker_gray;
         } else {
             switch (status) {
+<<<<<<< HEAD
+                case "pending":
+                    colorResId = android.R.color.holo_orange_dark;
+                    break;
+                case "confirmed":  // Displayed as "Booked"
+                    colorResId = android.R.color.holo_red_dark;
+                    break;
+=======
                 case "confirmed":
                     colorResId = android.R.color.holo_green_dark;
                     break;
                 case "pending":
                     colorResId = android.R.color.holo_orange_dark;
                     break;
+>>>>>>> upstream/main
                 case "checked_in":
                     colorResId = android.R.color.holo_blue_dark;
                     break;
@@ -130,13 +162,20 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                     colorResId = android.R.color.holo_purple;
                     break;
                 case "cancelled":
+<<<<<<< HEAD
+                    colorResId = android.R.color.holo_red_light;
+=======
                     colorResId = android.R.color.holo_red_dark;
+>>>>>>> upstream/main
                     break;
                 default:
                     colorResId = android.R.color.darker_gray;
             }
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> upstream/main
         textView.setTextColor(textView.getContext().getResources().getColor(colorResId));
     }
 
@@ -158,4 +197,8 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             optionsButton = itemView.findViewById(R.id.booking_options_button);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> upstream/main

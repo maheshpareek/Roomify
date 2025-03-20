@@ -1,6 +1,10 @@
 {
   "project_info": {
     "project_number": "842631885169",
+<<<<<<< HEAD
+    "firebase_url": "https://roomify-d0e13-default-rtdb.firebaseio.com",
+=======
+>>>>>>> upstream/main
     "project_id": "roomify-d0e13",
     "storage_bucket": "roomify-d0e13.firebasestorage.app"
   },
@@ -14,6 +18,17 @@
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
+          "client_id": "842631885169-dlqs2ifjigsnr19kdefkh57ipqvecanm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.roomify",
+            "certificate_hash": "2708ae6632808cfb5d7120ff7a1c3ab21e1461db"
+          }
+        },
+        {
+=======
+>>>>>>> upstream/main
           "client_id": "842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com",
           "client_type": 3
         }

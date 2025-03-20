@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Roomify</string>
+<<<<<<< HEAD
+    <string name="default_web_client_id">842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com.apps.googleusercontent.com</string>
+=======
     <string name="default_web_client_id">842631885169-oi6fja54khkvd5uodpptp1ircgmm2bac.apps.googleusercontent.com</string>
+>>>>>>> upstream/main
     <string name="welcome_message">Welcome, %1$s!</string>
     <string name="total_bookings">Total Bookings: %1$d</string>
     <string name="rewards">Rewards: %1$d Points</string>
