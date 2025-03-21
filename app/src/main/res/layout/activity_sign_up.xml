@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -41,6 +42,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="20dp" />
 
+
+
         <!-- First Name Input -->
         <EditText
             android:id="@+id/firstNameInput"
@@ -63,6 +66,7 @@
             android:layout_marginBottom="12dp"
             android:inputType="textPersonName"/>
 
+
         <!-- Email Input -->
         <EditText
             android:id="@+id/emailInput"
@@ -71,8 +75,8 @@
             android:hint="Enter Email"
             android:background="@drawable/rounded_edittext"
             android:padding="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="textEmailAddress"/>
+            android:layout_marginBottom="12dp" />
+
 
         <!-- Password Input -->
         <EditText
@@ -83,7 +87,9 @@
             android:background="@drawable/rounded_edittext"
             android:padding="12dp"
             android:layout_marginBottom="12dp"
-            android:inputType="textPassword"/>
+
+            android:inputType="textPassword" />
+
 
         <!-- Confirm Password Input -->
         <EditText
@@ -93,7 +99,10 @@
             android:hint="Confirm Password"
             android:padding="12dp"
             android:layout_marginBottom="20dp"
-            android:inputType="textPassword"/>
+
+            android:inputType="textPassword" />
+
+
 
         <!-- Sign Up Button -->
         <Button
@@ -104,7 +113,9 @@
             android:layout_gravity="center"
             android:backgroundTint="@color/dark_brown"
             android:text="Sign Up"
-            android:textColor="@color/black"/>
+
+            android:textColor="@color/black" />
+
 
         <View
             android:layout_width="match_parent"
@@ -138,7 +149,9 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/google_icon_small"
-                android:layout_marginEnd="8dp"/>
+
+                android:layout_marginEnd="8dp" />
+
 
             <TextView
                 android:id="@+id/googleSignUpText"
@@ -146,7 +159,8 @@
                 android:layout_height="wrap_content"
                 android:text="Sign Up with Google"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

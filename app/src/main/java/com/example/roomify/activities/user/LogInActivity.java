@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultCallback;
@@ -60,8 +61,17 @@ public class LogInActivity extends AppCompatActivity {
 
         EditText emailInput = findViewById(R.id.emailInput);
         EditText passwordInput = findViewById(R.id.passwordInput);
-        Button logInButton = findViewById(R.id.logInButton);
-        LinearLayout googleSignInButton = findViewById(R.id.googleSignInButton);
+        Button logInButton = findViewById(R.id.login_button);
+        LinearLayout googleSignInButton = findViewById(R.id.googleSignUpButton);
+        // Bind the Forgot Password TextView (make sure it's defined in your login.xml)
+        TextView forgotPasswordText = findViewById(R.id.forgotPasswordText);
+
+        // Set click listener to launch ForgotPasswordActivity when user clicks "Forgot Password?"
+        forgotPasswordText.setOnClickListener(v -> {
+            startActivity(new Intent(LogInActivity.this, ForgotPasswordActivity.class));
+        });
+
+        // Log in with Email/Password
         logInButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();
             String password = passwordInput.getText().toString().trim();
@@ -84,10 +94,18 @@ public class LogInActivity extends AppCompatActivity {
                     });
         });
 
+        // Google Sign-In button click listener
         googleSignInButton.setOnClickListener(v -> {
             Intent signInIntent = mGoogleSignInClient.getSignInIntent();
             googleSignInLauncher.launch(signInIntent);
         });
+
+        // Google Sign-In setup
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
     }
 
     private void checkUserType(String uid) {

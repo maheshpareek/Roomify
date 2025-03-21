@@ -32,6 +32,11 @@
         <item>admin</item>
         <item>guest</item>
     </string-array>
-
-
+    <string-array name="admin_roles">
+        <item>owner</item>
+        <item>manager</item>
+        <item>receptionist</item>
+        <item>plumber</item>
+        <item>cleaner</item>
+    </string-array>
 </resources>
