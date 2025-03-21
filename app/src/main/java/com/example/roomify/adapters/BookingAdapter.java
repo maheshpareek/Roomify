@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.NumberFormat;
@@ -53,6 +54,9 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         String guestName = booking.getGuestName();
         holder.guestNameTextView.setText(guestName != null ? guestName : "Guest");
 
+        // Format dates
+        String checkin = dateFormat.format(booking.getCheckInDate());
+        String checkout = dateFormat.format(booking.getCheckOutDate());
         holder.dateRangeTextView.setText(checkin + " - " + checkout);
 
         // Format price with currency symbol
@@ -93,6 +97,7 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             case "pending":
                 return "Pending";
             case "confirmed":
+                return "Confirmed";
             case "checked_in":
                 return "Checked In";
             case "checked_out":
@@ -110,6 +115,12 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             colorResId = android.R.color.darker_gray;
         } else {
             switch (status) {
+                case "pending":
+                    colorResId = android.R.color.holo_orange_dark;
+                    break;
+                case "confirmed":
+                    colorResId = android.R.color.holo_green_dark;
+                    break;
                 case "checked_in":
                     colorResId = android.R.color.holo_blue_dark;
                     break;
@@ -117,12 +128,14 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
                     colorResId = android.R.color.holo_purple;
                     break;
                 case "cancelled":
+                    colorResId = android.R.color.holo_red_dark;
                     break;
                 default:
                     colorResId = android.R.color.darker_gray;
             }
         }
-        textView.setTextColor(textView.getContext().getResources().getColor(colorResId));
+        // Use ContextCompat for compatibility with newer Android versions
+        textView.setTextColor(ContextCompat.getColor(textView.getContext(), colorResId));
     }
 
     static class BookingViewHolder extends RecyclerView.ViewHolder {
@@ -143,3 +156,4 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
             optionsButton = itemView.findViewById(R.id.booking_options_button);
         }
     }
+}

@@ -25,6 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
+public class AdminDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -71,6 +72,7 @@ import java.util.List;
         // Recent activity
         recentActivityList = findViewById(R.id.recent_activity_list);
 
+        // Floating action button for adding new room
         fabAdd = findViewById(R.id.fab_add);
     }
 
@@ -127,6 +129,13 @@ import java.util.List;
     }
 
     private void setupFloatingActionButton() {
+        // When the FAB is clicked, launch AddRoomActivity
+        fabAdd.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminDashboardActivity.this, AddRoomActivity.class);
+            startActivity(intent);
+        });
+    }
+
     private void setMockData() {
         totalBookingsText.setText("150");
         availableRoomsText.setText("42");
@@ -151,6 +160,7 @@ import java.util.List;
             startActivity(new Intent(this, ManagePaymentsActivity.class));
         } else if (id == R.id.nav_reports) {
             startActivity(new Intent(this, ReportsActivity.class));
+        } else if (id == R.id.nav_logout) {
             startActivity(new Intent(this, LogInActivity.class));
             finish();
         }
@@ -167,3 +177,4 @@ import java.util.List;
             super.onBackPressed();
         }
     }
+}

@@ -9,6 +9,10 @@ public class Room {
     private double price;
     private String type;
     private String description;
+    private boolean isAvailable;
+    private Map<String, Object> amenities;
+    private String imageUrl;
+
     public Room() {
         amenities = new HashMap<>();
     }
@@ -18,6 +22,10 @@ public class Room {
         this.price = price;
         this.type = type;
         this.description = description;
+        this.amenities = new HashMap<>();
+    }
+
+    public Room(String id, String roomNumber, double price, String type, String description, boolean isAvailable) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.price = price;
@@ -67,6 +75,12 @@ public class Room {
         this.description = description;
     }
 
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
     }
 
     public Map<String, Object> getAmenities() {
@@ -98,9 +112,11 @@ public class Room {
         result.put("price", price);
         result.put("type", type);
         result.put("description", description);
+        result.put("isAvailable", isAvailable);
         result.put("amenities", amenities);
         if (imageUrl != null) {
             result.put("imageUrl", imageUrl);
         }
         return result;
     }
+}
