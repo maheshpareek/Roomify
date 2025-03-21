@@ -58,10 +58,9 @@ dependencies {
     implementation ("androidx.cardview:cardview:1.0.0")
 
     implementation ("com.google.firebase:firebase-firestore:24.3.0")
-<<<<<<< HEAD
 
 
-=======
->>>>>>> upstream/main
+
+
 }
 

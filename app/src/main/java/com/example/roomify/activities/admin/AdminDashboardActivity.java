@@ -25,12 +25,6 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-public class AdminDashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-=======
-public class AdminDashboardActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
->>>>>>> upstream/main
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -77,11 +71,6 @@ public class AdminDashboardActivity extends AppCompatActivity
         // Recent activity
         recentActivityList = findViewById(R.id.recent_activity_list);
 
-<<<<<<< HEAD
-        // Floating action button for adding new room
-=======
-        // Floating action button
->>>>>>> upstream/main
         fabAdd = findViewById(R.id.fab_add);
     }
 
@@ -138,32 +127,6 @@ public class AdminDashboardActivity extends AppCompatActivity
     }
 
     private void setupFloatingActionButton() {
-<<<<<<< HEAD
-        // When the FAB is clicked, launch AddRoomActivity
-        fabAdd.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminDashboardActivity.this, AddRoomActivity.class);
-            startActivity(intent);
-        });
-    }
-
-=======
-        fabAdd.setOnClickListener(v -> {
-            // Show options for adding new item
-            showAddOptions();
-        });
-    }
-
-    private void showAddOptions() {
-        // Show bottom sheet or dialog with options
-        // This is a placeholder for a more complex implementation
-        // You would typically show a BottomSheetDialog here
-
-        // For demonstration, we'll just navigate to add room
-        Intent intent = new Intent(AdminDashboardActivity.this, AddRoomActivity.class);
-        startActivity(intent);
-    }
-
->>>>>>> upstream/main
     private void setMockData() {
         totalBookingsText.setText("150");
         availableRoomsText.setText("42");
@@ -188,15 +151,6 @@ public class AdminDashboardActivity extends AppCompatActivity
             startActivity(new Intent(this, ManagePaymentsActivity.class));
         } else if (id == R.id.nav_reports) {
             startActivity(new Intent(this, ReportsActivity.class));
-<<<<<<< HEAD
-        } else if (id == R.id.nav_logout) {
-=======
-        } else if (id == R.id.nav_settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-        } else if (id == R.id.nav_logout) {
-            // Implement logout functionality
-            // Example: FirebaseAuth.getInstance().signOut();
->>>>>>> upstream/main
             startActivity(new Intent(this, LogInActivity.class));
             finish();
         }
@@ -213,8 +167,3 @@ public class AdminDashboardActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> upstream/main

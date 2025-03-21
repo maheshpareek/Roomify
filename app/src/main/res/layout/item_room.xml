@@ -4,28 +4,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-<<<<<<< HEAD
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
-=======
+
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="2dp">
->>>>>>> upstream/main
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:orientation="horizontal"
         android:padding="8dp">
 
         <!-- Room Image -->
-=======
+
         android:orientation="horizontal">
 
->>>>>>> upstream/main
+
         <ImageView
             android:id="@+id/room_image"
             android:layout_width="100dp"
@@ -34,7 +32,6 @@
             android:src="@drawable/ic_room"
             android:contentDescription="Room Image"/>
 
-<<<<<<< HEAD
         <!-- Room Details Container -->
         <LinearLayout
             android:layout_width="0dp"
@@ -104,7 +101,7 @@
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-=======
+
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -163,4 +160,4 @@
         </RelativeLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
->>>>>>> upstream/main
+

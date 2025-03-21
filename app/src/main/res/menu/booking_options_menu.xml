@@ -9,8 +9,7 @@
     <item
         android:id="@+id/action_delete_booking"
         android:title="Delete Booking" />
-<<<<<<< HEAD
 </menu>
-=======
+
 </menu>
->>>>>>> upstream/main
+

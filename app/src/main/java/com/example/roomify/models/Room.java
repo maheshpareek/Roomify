@@ -1,9 +1,5 @@
 package com.example.roomify.models;
 
-<<<<<<< HEAD
-import com.google.firebase.firestore.PropertyName;
-=======
->>>>>>> upstream/main
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,19 +9,6 @@ public class Room {
     private double price;
     private String type;
     private String description;
-<<<<<<< HEAD
-    private Boolean isAvailable; // this corresponds to the Firestore field "isAvailable"
-    private Map<String, Object> amenities;
-    private String imageUrl;
-
-    // Empty constructor required for Firestore deserialization
-=======
-    private boolean isAvailable;
-    private Map<String, Object> amenities;
-    private String imageUrl;
-
-    // Empty constructor required for Firestore
->>>>>>> upstream/main
     public Room() {
         amenities = new HashMap<>();
     }
@@ -35,21 +18,6 @@ public class Room {
         this.price = price;
         this.type = type;
         this.description = description;
-<<<<<<< HEAD
-        this.isAvailable = true; // new rooms default to available
-        this.amenities = new HashMap<>();
-    }
-
-    // With ID constructor – note: using Boolean so null values can be handled
-    public Room(String id, String roomNumber, double price, String type, String description, Boolean isAvailable) {
-=======
-        this.isAvailable = true;
-        this.amenities = new HashMap<>();
-    }
-
-    // With ID constructor
-    public Room(String id, String roomNumber, double price, String type, String description, boolean isAvailable) {
->>>>>>> upstream/main
         this.id = id;
         this.roomNumber = roomNumber;
         this.price = price;
@@ -99,29 +67,6 @@ public class Room {
         this.description = description;
     }
 
-<<<<<<< HEAD
-    // Use the @PropertyName annotation to explicitly map the Firestore field
-    @PropertyName("isAvailable")
-    public Boolean getIsAvailable() {
-        return isAvailable;
-    }
-
-    @PropertyName("isAvailable")
-    public void setIsAvailable(Boolean isAvailable) {
-        this.isAvailable = isAvailable;
-    }
-
-    // Convenience method: returns the actual availability, defaulting to true if missing.
-    public boolean isAvailable() {
-        return Boolean.TRUE.equals(isAvailable);
-=======
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
->>>>>>> upstream/main
     }
 
     public Map<String, Object> getAmenities() {
@@ -147,30 +92,15 @@ public class Room {
         this.imageUrl = imageUrl;
     }
 
-<<<<<<< HEAD
-=======
-    // Convert Room object to a Map for Firestore
->>>>>>> upstream/main
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("roomNumber", roomNumber);
         result.put("price", price);
         result.put("type", type);
         result.put("description", description);
-<<<<<<< HEAD
-        // Write the current value; if null, default to true
-        result.put("isAvailable", isAvailable != null ? isAvailable : true);
-=======
-        result.put("isAvailable", isAvailable);
->>>>>>> upstream/main
         result.put("amenities", amenities);
         if (imageUrl != null) {
             result.put("imageUrl", imageUrl);
         }
         return result;
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> upstream/main
