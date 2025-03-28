@@ -23,5 +23,4 @@
     <string name="action_edit_user">Edit User</string>
     <string name="action_delete_user">Delete User</string>
     <string name="action_change_type">Change User Type</string>
-
 </resources>
